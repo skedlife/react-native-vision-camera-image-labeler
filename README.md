@@ -66,10 +66,10 @@ import { useImageLabeler } from "react-native-vision-camera-image-labeler";
 function App() {
   const device = useCameraDevice('back');
   const options = {minConfidence : 0.1} // Optional
-  const {labelerImage} = useImageLabeler({minConfidence : 0.1})
+  const { scanImage } = useImageLabeler({minConfidence : 0.1})
   const frameProcessor = useFrameProcessor((frame) => {
     'worklet'
-    const data = labelerImage(frame)
+    const data = scanImage(frame)
 	console.log(data, 'data')
   }, [])
   return (
@@ -119,19 +119,3 @@ console.log(result);
 |     uri     | string |                                                             |   yes    |          | android, iOS |
 | orientation | string | portrait, portraitUpsideDown, landscapeLeft, landscapeRight |    no    | portrait |     iOS      |
 | minConfidence | number |                          0.1 ~ 1.0                          |    no    |   1.0    | android,iOS  |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

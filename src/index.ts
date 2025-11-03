@@ -1,3 +1,3 @@
 export { Camera, useImageLabeler } from './Camera';
 
-export { ImageScanner } from './ImageScanner';
+export { ImageScanner, toBase64 } from './ImageScanner';

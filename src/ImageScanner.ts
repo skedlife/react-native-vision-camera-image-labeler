@@ -19,3 +19,22 @@ export async function ImageScanner(
     return await ImageScannerModule.process(uri, minConfidence || 1.0);
   }
 }
+
+export async function toBase64(
+  path: string
+): Promise<string> {
+  const { ImageScannerModule } = NativeModules;
+  if (!path) {
+    throw Error("Can't resolve img path");
+  }
+  if (Platform.OS === 'ios') {
+    return await ImageScannerModule.process(
+      path.replace('file://', ''),
+      orientation || 'portrait',
+      minConfidence || 1.0
+    );
+  } else {
+    return await ImageScannerModule.toBase64(path);
+  }
+}
+
