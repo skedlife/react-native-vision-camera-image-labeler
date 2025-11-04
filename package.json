@@ -1,6 +1,6 @@
 {
   "name": "react-native-vision-camera-image-labeler-sked",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "description": "A plugin to label images using ML Kit Image Labeler. With High Performance.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
