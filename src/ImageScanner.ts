@@ -27,14 +27,6 @@ export async function toBase64(
   if (!path) {
     throw Error("Can't resolve img path");
   }
-  if (Platform.OS === 'ios') {
-    return await ImageScannerModule.process(
-      path.replace('file://', ''),
-      orientation || 'portrait',
-      minConfidence || 1.0
-    );
-  } else {
-    return await ImageScannerModule.toBase64(path);
-  }
+  return await ImageScannerModule.toBase64(path);
 }
 

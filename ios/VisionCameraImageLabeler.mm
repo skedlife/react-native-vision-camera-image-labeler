@@ -26,9 +26,21 @@
 @interface RCT_EXTERN_MODULE(ImageScannerModule, NSObject)
 
 
-RCT_EXTERN_METHOD(process:(NSString *)uri
+RCT_EXTERN_METHOD(process:(NSString *)base64
                   orientation:(NSString *)orientation
                   minConfidence:(double *)minConfidence
+                  withResolver:(RCTPromiseResolveBlock)resolve
+                  withRejecter:(RCTPromiseRejectBlock)reject)
+
+
+RCT_EXTERN_METHOD(old_process:(NSString *)uri
+                  orientation:(NSString *)orientation
+                  minConfidence:(double *)minConfidence
+                  withResolver:(RCTPromiseResolveBlock)resolve
+                  withRejecter:(RCTPromiseRejectBlock)reject)
+
+
+RCT_EXTERN_METHOD(toBase64:(NSString *)filePath
                   withResolver:(RCTPromiseResolveBlock)resolve
                   withRejecter:(RCTPromiseRejectBlock)reject)
 
